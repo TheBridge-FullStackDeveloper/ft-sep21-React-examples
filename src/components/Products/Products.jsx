@@ -1,52 +1,84 @@
-import React, { Component} from 'react'
+import React, { Component } from 'react'
 import Product from './Product'
+import data from '../../data'
 
 export class Products extends Component {
 
-
     constructor(props) {
         super(props)
-    
+
         this.state = {
-            lastAdded:{}, // {name:"naranja",price:"1"} // Modifica el estado. Último añadido
-            productList:[] // [{},{},{},{},{},{}] --> Para guardar los productos
+            lastAdded: {}, // {name:"naranja",price:"1"} // Modifica el estado. Último añadido
+            productList: data // [{},{},{},{},{},{}] --> Para guardar los productos
         }
     }
-    
 
-    createProduct = () => {
-        
+    createProduct = (name,price,supplier) => {
+
         //const name = "naranja"
         //const price = "1" 
-        const name = prompt("Introduce producto")
-        const price = prompt("introduce precio")
-        const newProduct = {name,price}
+        //const name = prompt("Introduce producto")
+        //const price = prompt("introduce precio")
+        const newProduct = {name, price, supplier}
 
-        
-        this.setState({lastAdded:newProduct}) // Modifica el estado. Ultimo añadido
-
+        this.setState({ lastAdded: newProduct }) // Modifica el estado. Ultimo añadido
+        this.setState({ productList: [...this.state.productList, newProduct] })
         //alert(`Producto ${name}, precio: ${price} € Creado`)
     }
-    deleteAllProducts = () => {
-        alert("Borrado")
+    //Vaciar el array productList
+    deleteAllProducts = () => this.setState({ productList: [] })
+    
+    // Pasar la posicion a borrar del array productList
+    // Buscar en el array el elemento a borrar
+
+    deleteProduct = i => {
+        const products = this.state.productList.filter((product, j) => j !== i)
+        this.setState({ productList: products })
+    }
+
+    paintProducts = () => {
+        // lee de state productList OK
+        // Los recorre con un bucle ->Transformar datos de array a componente Product--> MAP
+        // Los pinta en el DOM
+        // {} ---> <Product>
+        //[{},{},{},{}] ---> [<Product>,<Product>,<Product>,<Product>,<Product>]
+        // Devuelve [<Product>,<Product>,<Product>,<Product>,<Product>]
+        return this.state.productList.map((product, i) => <Product info={product} delete={() => this.deleteProduct(i)} key={i} />)
+    }
+
+    handleChange = event => console.log(event.target.value)
+
+    handleSubmit = event => {
+        event.preventDefault();
+        const name = event.target.name.value
+        const price = event.target.price.value
+        const supplier = event.target.supplier.value
+        
+        // Crear producto
+        this.createProduct(name,price,supplier)
     }
 
     render() {
-        const data = [{name:"tostada",price:"1.5", supplier:"Cafecitos SA"},
-                        {name:"cafe",price:"1" , supplier:"La Competencia SL"},
-                        {name:"zumo de naranja",price:"2"},
-                        {name:"huevos fritos",price:"5"}]
-
         const name = this.state.lastAdded.name
 
         return (
             <div>
-                <Product info={data[0]}/>
-                <Product info={data[1]}/>
-                <Product info={data[2]}/>
-                <Product info={data[3]}/>
+                <h2>Alta de nuevo producto</h2>
 
-                <button onClick={this.deleteAllProducts}>Borrar</button>
+                <form onSubmit={this.handleSubmit}>
+                    <label htmlFor="name">Nombre:</label><br/>
+                    <input type="text" id="name" name="name" onChange={this.handleChange}/><br />
+                    <label htmlFor="price">Precio:</label><br/>
+                    <input type="number" id="price" name="price"/><br/>
+                    <label htmlFor="supplier">Proveedor:</label><br/>
+                    <input type="text" id="supplier" name="supplier"/><br />
+                    <input type="submit"/>
+                </form> 
+                
+
+
+                {this.paintProducts()}
+                <button onClick={this.deleteAllProducts}>Borrar todo</button>
                 <button onClick={this.createProduct}>Crear</button>
                 <h5>Último elemento creado:{name}</h5>
             </div>

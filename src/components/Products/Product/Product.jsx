@@ -17,6 +17,7 @@ export class Product extends Component {
         return (
             <div>
                 <p>Producto:{name}, Precio:{price} € Proveedor: {this.state.supplier}</p>
+                <button onClick={this.props.delete}>Borrar</button>
             </div>
         )
     }
