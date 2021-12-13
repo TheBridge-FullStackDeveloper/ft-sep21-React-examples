@@ -7,6 +7,8 @@ export class Products extends Component {
     constructor(props) {
         super(props)
 
+        this.name = React.createRef();
+
         this.state = {
             lastAdded: {}, // {name:"naranja",price:"1"} // Modifica el estado. Último añadido
             productList: data // [{},{},{},{},{},{}] --> Para guardar los productos
@@ -50,7 +52,7 @@ export class Products extends Component {
 
     handleSubmit = event => {
         event.preventDefault();
-        const name = event.target.name.value
+        const name = this.name.current.value // por referencia
         const price = event.target.price.value
         const supplier = event.target.supplier.value
         
@@ -67,7 +69,7 @@ export class Products extends Component {
 
                 <form onSubmit={this.handleSubmit}>
                     <label htmlFor="name">Nombre:</label><br/>
-                    <input type="text" id="name" name="name" onChange={this.handleChange}/><br />
+                    <input type="text" id="name" name="name" onChange={this.handleChange} ref={this.name}/><br />
                     <label htmlFor="price">Precio:</label><br/>
                     <input type="number" id="price" name="price"/><br/>
                     <label htmlFor="supplier">Proveedor:</label><br/>
