@@ -15,13 +15,13 @@ export class Products extends Component {
         }
     }
 
-    createProduct = (name,price,supplier) => {
+    createProduct = (name,price,supplier,picture) => {
 
         //const name = "naranja"
         //const price = "1" 
         //const name = prompt("Introduce producto")
         //const price = prompt("introduce precio")
-        const newProduct = {name, price, supplier}
+        const newProduct = {name, price, supplier, picture}
 
         this.setState({ lastAdded: newProduct }) // Modifica el estado. Ultimo añadido
         this.setState({ productList: [...this.state.productList, newProduct] })
@@ -55,9 +55,10 @@ export class Products extends Component {
         const name = this.name.current.value // por referencia
         const price = event.target.price.value
         const supplier = event.target.supplier.value
+        const picture = event.target.picture.value
         
         // Crear producto
-        this.createProduct(name,price,supplier)
+        this.createProduct(name,price,supplier,picture)
     }
 
     render() {
@@ -69,11 +70,13 @@ export class Products extends Component {
 
                 <form onSubmit={this.handleSubmit}>
                     <label htmlFor="name">Nombre:</label><br/>
-                    <input type="text" id="name" name="name" onChange={this.handleChange} ref={this.name}/><br />
+                    <input type="text" name="name" onChange={this.handleChange} ref={this.name}/><br />
                     <label htmlFor="price">Precio:</label><br/>
-                    <input type="number" id="price" name="price"/><br/>
+                    <input type="number" name="price"/><br/>
                     <label htmlFor="supplier">Proveedor:</label><br/>
-                    <input type="text" id="supplier" name="supplier"/><br />
+                    <input type="text" name="supplier"/><br />
+                    <label htmlFor="picture">Imagen:</label><br/>
+                    <input type="url" name="picture"/><br />
                     <input type="submit"/>
                 </form> 
                 
