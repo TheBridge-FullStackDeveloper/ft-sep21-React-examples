@@ -1,10 +1,12 @@
 import React, { Component } from "react";
+import {userContext} from '../../context/userContext';
 
 class Contact extends Component {
 
+  static contextType = userContext // Adhiere el contexto deseado a la clase
+
   constructor(props) {
     super(props)
-    
     this.name = React.createRef(); // crear la referencia
     this.state = {
        name:""
@@ -16,14 +18,7 @@ class Contact extends Component {
     console.log(prevProps,this.props);
     console.log("******STATE*******");
     console.log(prevState,this.state);
-    
   }
-
-  componentDidMount() {
-    
-  }
-
-
 
   handleSubmit = event => {
     event.preventDefault();
@@ -31,6 +26,11 @@ class Contact extends Component {
     console.log("******************************+++")
     console.log(name);    
     this.setState({name})
+
+    // Consumir contexto. Sólo necesito Login y Logout
+    const {login} = this.context
+    // Invocar a Login enviador por provider. Cambia contexto
+    login(name);
   }
   
   render() {
