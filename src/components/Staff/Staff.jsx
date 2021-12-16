@@ -25,7 +25,11 @@ class Staff extends Component {
   render() {
     console.log('RENDER')
     return (
+      <section>
+        <h1>Directorio de la empresa</h1>
         <PokemonsApi lista={this.state.pokeLista}></PokemonsApi>
+      </section>
+        
     );
   }
 }

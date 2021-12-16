@@ -8,11 +8,13 @@ import Pokeuser from '../Pokeuser'
 import Topics from '../Topics'
 import {Route, Routes} from 'react-router-dom';
 
+import './Main.css'
+
 
 export class Main extends Component {
     render() {
         return (
-            <main>
+            <main className="main">
                 <Routes>
                     <Route path="/" element={<Products/>} exact />
                     <Route path="/about" element={<About/>} />

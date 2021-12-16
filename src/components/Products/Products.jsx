@@ -65,8 +65,8 @@ export class Products extends Component {
         const name = this.state.lastAdded.name
 
         return (
-            <div>
-                <h2>Alta de nuevo producto</h2>
+            <section>
+                <h1>Alta de nuevo producto</h1>
 
                 <form onSubmit={this.handleSubmit}>
                     <label htmlFor="name">Nombre:</label><br/>
@@ -79,14 +79,11 @@ export class Products extends Component {
                     <input type="url" name="picture"/><br />
                     <input type="submit"/>
                 </form> 
-                
-
-
+                <h5>Último elemento creado:{name}</h5>
                 {this.paintProducts()}
                 <button onClick={this.deleteAllProducts}>Borrar todo</button>
-                <button onClick={this.createProduct}>Crear</button>
-                <h5>Último elemento creado:{name}</h5>
-            </div>
+                
+            </section>
         )
     }
 }

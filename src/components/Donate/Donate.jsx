@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import beer from '../../assets/beer.png'
+import './Donate.css'
 
 const Donate = () => {
   const [count, setCount] = useState(0);
@@ -8,8 +10,8 @@ const Donate = () => {
     // ¿Cómo modifico "count"? --> con setCount() --> setState()
 
     const [values, setValues] = useState({
-                                            email: '',
-                                            password: ''
+                                            name: '',
+                                            email: ''            
                                         });
 
     const handleAddClick = () => {
@@ -22,32 +24,40 @@ const Donate = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
+        const name = e.target.name.value
         const email = e.target.email.value
-        const password = e.target.password.value
+
         setValues({
-            email,
-            password
+            name,
+            email
         })
         console.log(values)
     }
 
     return (
-        <>  
+        <section>  
             <h1>Dóname una cerveza</h1>
+            
+            <img src={beer} alt="beer" className="beer"/>
+            
+            <br /> 
+            <h3>Cervezas a donar: {count}</h3>
             <button name='add' onClick={handleAddClick} >+</button>
             <button name='sub' onClick={handleSubClick} >-</button>
             
+            <h3>Datos de contacto</h3>
             <form onSubmit={handleSubmit}>
-                <label htmlFor="email">Email</label>
-                <input name="email" type="email"></input>
-                <br/><br/>
-                <label htmlFor="password">Password</label>
-                <input name="password" type="text"></input>
+                <label htmlFor="name">Nombre</label><br/>
+                <input name="name" type="name"></input><br/>
+                <label htmlFor="email">Email</label><br/>
+                <input name="email" type="email"></input><br/>
 
-                <button>Login</button>
+                <button>Donar</button>
             </form>
-            {values.email && values.password?<h3>Cervezas donadas: {count} por {values.email}</h3>:""}
-        </>
+
+
+            {values.name && values.email?<h3>Cervezas donadas: {count} por {values.email}</h3>:""}
+        </section>
     );
 };
 

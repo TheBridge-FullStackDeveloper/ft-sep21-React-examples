@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios'
 
+import './Topics.css'
+
 const Topics = () => {
 
   const [value, setValue] = useState("thebridge"); // Para guardar el dato a buscar
@@ -32,21 +34,21 @@ const Topics = () => {
   };
 
 
-  return    <>
+  return    <section>
               <h1>Búsqueda por topic</h1>
               <form onSubmit={handleSubmit}>
                 <input name="topic"/>
               </form>
 
               {posts.length!==0?
-                                <ul>
+                                <ul className='topics'>
                                   {posts.map(post => (
                                     <li key={post.id}>{post.title}</li>
                                   ))}
                                 </ul>
                                 :""
               }
-            </>
+            </section>
 };
 
 export default Topics;

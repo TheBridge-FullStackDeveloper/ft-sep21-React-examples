@@ -34,13 +34,14 @@ class Contact extends Component {
   }
   
   render() {
-    return <div>
-      <form onSubmit={this.handleSubmit}>
-        <label htmlFor="name">Nombre:</label><br/>
-        <input type="text" id="name" name="name" ref={this.name}/><br />
-        <input type="submit"/>
-      </form> 
-    </div>
+    return <section>
+              <h1>Introduce nombre de usuario</h1>
+              <form onSubmit={this.handleSubmit}>
+                <label htmlFor="name">Nombre:</label><br/>
+                <input type="text" id="name" name="name" ref={this.name}/><br />
+                <input type="submit"/>
+              </form> 
+            </section>
   }
 }
 

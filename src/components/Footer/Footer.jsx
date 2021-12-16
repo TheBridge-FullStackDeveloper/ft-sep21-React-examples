@@ -4,7 +4,7 @@ import './Footer.css'
 function Footer() {
     return (
         <footer>
-            <p>Aquí va el footer!</p>
+            <p>@copyright Empresa vendehumo SA</p>
         </footer>
     )
 }

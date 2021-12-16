@@ -1,13 +1,19 @@
 import React, { Component } from 'react'
 import Nav from '../Nav'
+import './Header.css'
+import logo from "../../assets/linux.png";
 
 import {userContext} from '../../context/userContext';
 
 class Header extends Component {
     render() {
         return (
-            <header>
-                <Nav/>
+            <header className="header">
+                <img src={logo} alt="linux"/>
+                <div className="header-title">
+                    <h1>Mi app super guay</h1>
+                    <Nav/>
+                </div>
                 <userContext.Consumer>
                 {
                     /*

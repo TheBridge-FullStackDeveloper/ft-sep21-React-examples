@@ -15,9 +15,12 @@ const Pokeuser = () => {
   },[]);
 
   return (
-    <ul>
-      {pokemons.map((pokemon)=><li>Nombre: {pokemon.name}</li>)}
-    </ul>
+    <section>
+      <h1>Mis pokeusers</h1>
+      <ul>
+        {pokemons.map((pokemon)=><li>Nombre: {pokemon.name}</li>)}
+      </ul>
+    </section>
   );
 };
 

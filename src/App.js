@@ -10,7 +10,7 @@ import {userContext} from './context/userContext';
 
 
 function App() {
-  const [user, setUser] = useState({name:"alex"}); // Estado de user ->{name:"alex"}
+  const [user, setUser] = useState({name:""}); // Estado de user ->{name:"alex"}
 
   const login = name => setUser({name}) // Rellena estado user
   const logout = () => setUser({name:""}) // Limpia estado user
