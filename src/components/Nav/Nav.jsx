@@ -11,6 +11,8 @@ class Nav extends Component {
         <li><Link to="/staff">Staff</Link></li>
         <li><Link to="/contact">Contact</Link></li>
         <li><Link to="/donate">Donate</Link></li>
+        <li><Link to="/pokeuser">Pokeuser</Link></li>
+        <li><Link to="/topics">Topics</Link></li>
       </ul>
     </nav>;
   }
