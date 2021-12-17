@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Nav from '../Nav'
-import './Header.css'
+// import './Header.css'
 import logo from "../../assets/linux.png";
 
 import {userContext} from '../../context/userContext';
@@ -11,7 +11,7 @@ class Header extends Component {
             <header className="header">
                 <img src={logo} alt="linux"/>
                 <div className="header-title">
-                    <h1>Mi app super guay</h1>
+                    <h1 className="header--h1">Mi app super guay</h1>
                     <Nav/>
                 </div>
                 <userContext.Consumer>
