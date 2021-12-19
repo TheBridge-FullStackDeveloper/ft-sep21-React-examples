@@ -1,0 +1,86 @@
+@import '../utils/variables';
+
+// posición y colocación del header
+.header {
+    background-color: $primary-color;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    height: 150px;
+    &--h1 {
+        color:$third-color;
+    }
+}
+.header > img{
+    padding-left: 15px;
+
+}
+
+.header-title {
+        flex-basis: 90%;
+}
+.header-title > h1 {
+    font-size: 50px;
+}
+
+// tema secundario del header
+
+.dark{
+    background-color: rgb(72, 30, 126);
+    color:white;
+}
+
+img{
+    width:5%;
+}
+
+// movidas del Nav
+
+.nav{
+    &--ul {
+    display: flex;
+    align-content: space-between;
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom: 20px;
+    &--li {
+        margin: 5px;
+        list-style: none;
+        a {
+            font-size: 20px;
+            text-decoration: none;
+            color: rgb(240, 233, 233);
+        }
+    }
+    }
+    
+}
+
+// tema secundario del Nav
+.dark > ul > li > a {
+      color: white;
+
+}
+
+// comentar ahora
+// .nav> ul {
+//     display: flex;
+//     align-content: space-between;
+//     flex-direction: row;
+//     justify-content: center;
+//     margin-bottom: 20px;
+// }
+
+// .nav> ul > li{
+//         margin: 5px;
+//         list-style: none;
+// }
+
+// .nav> ul > li > a{
+//             font-size: 20px;
+//             text-decoration: none;
+//             color: rgb(240, 233, 233);
+//         }
+

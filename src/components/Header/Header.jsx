@@ -12,7 +12,7 @@ class Header extends Component {
                 <img src={logo} alt="linux"/>
                 <div className="header-title">
                     <h1 className="header--h1">Mi app super guay</h1>
-                    <Nav/>
+                    <Nav clase="textNav" />
                 </div>
                 <userContext.Consumer>
                 {
