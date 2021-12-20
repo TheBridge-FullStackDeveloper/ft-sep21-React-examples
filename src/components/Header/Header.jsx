@@ -4,9 +4,12 @@ import Nav from '../Nav';
 import logo from "../../assets/linux.png";
 
 import {userContext} from '../../context/userContext';
+import {themeContext} from '../../context/themeContext';
 
 class Header extends Component {
+
     render() {
+
         return (
             <header className="header">
                 <img src={logo} alt="linux"/>
