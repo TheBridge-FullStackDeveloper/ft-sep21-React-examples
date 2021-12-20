@@ -1,6 +1,10 @@
 import React, { Component } from 'react'
 import './Product.css'
 
+
+import Button from '@mui/material/Button';
+
+
 export class Product extends Component {
     
     //rconst
@@ -25,7 +29,11 @@ export class Product extends Component {
                     <figcaption> Producto: {name} - {price}€ </figcaption>
                 </figure>
 
-                <button onClick={this.props.delete}>Borrar</button>
+                {/* <button onClick={this.props.delete}>Borrar</button> */}
+                
+                <Button onClick={this.props.delete} variant="contained">Borrar</Button>
+      
+
             </div>
         )
     }
