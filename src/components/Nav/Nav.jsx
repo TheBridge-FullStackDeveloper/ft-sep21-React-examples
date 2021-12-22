@@ -18,6 +18,7 @@ function Nav() {
     <li><Link to="/donate">Donate</Link></li>
     <li><Link to="/pokeuser">Pokeuser</Link></li>
     <li><Link to="/topics">Topics</Link></li>
+    <li><Link to="/rating">Rating</Link></li>
   </ul>
 </nav>;
 }

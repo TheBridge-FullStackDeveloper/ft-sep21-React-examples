@@ -10,22 +10,22 @@ class Header extends Component {
 
     render() {
 
-        return (
-            <header className="header">
-                <img src={logo} alt="linux"/>
-                <div className="header-title">
-                    <h1 className='header--h1'>Mi app super guay</h1>
-                    <Nav />
-                </div>
-                <userContext.Consumer>
-                {
-                    /*
-                    value => <>
-                                <h3>Hola {value.user.name}</h3>
-                                <button onClick={value.logout}>Logout</button>
-                             </> 
-                             */
-                    ({user,logout}) => user.name?
+            return (
+                <header className="header">
+                    <img src={logo} alt="linux"/>
+                    <div className="header-title">
+                        <h1 className='header--h1'>Mi app super guay</h1>
+                        <Nav />
+                    </div>
+                    <userContext.Consumer>
+                    {
+                        /*
+                        value => <>
+                                    <h3>Hola {value.user.name}</h3>
+                                    <button onClick={value.logout}>Logout</button>
+                                </> 
+                                */
+                        ({user,logout}) => user.name?
                                             <>
                                                 <h3>Hola {user.name}</h3>
                                                 <button onClick={logout}>Logout</button>

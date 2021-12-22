@@ -1,10 +1,10 @@
 import React from "react";
 import { render, screen } from '@testing-library/react';
-import Review from "./Review";
+import Rating from "./Rating";
 
-describe("Review", () => {
+describe("Rating", () => {
   test("matches snapshot", () => {
-    render(<Review />);
+    render(<Rating />);
     expect(screen).toMatchSnapshot();
   });
 });

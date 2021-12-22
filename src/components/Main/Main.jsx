@@ -6,6 +6,7 @@ import About from '../About'
 import Donate from '../Donate'
 import Pokeuser from '../Pokeuser'
 import Topics from '../Topics'
+import Rating from '../Rating/Rating'
 import {Route, Routes} from 'react-router-dom';
 
 import './Main.css'
@@ -23,6 +24,7 @@ export class Main extends Component {
                     <Route path="/donate" element={<Donate/>} />
                     <Route path="/pokeuser" element={<Pokeuser/>} />
                     <Route path="/topics" element={<Topics/>} />
+                    <Route path="/rating" element={<Rating/>} />
                 </Routes>
             </main>
         )
